@@ -1,6 +1,9 @@
 Thanks @edzer for the useful comments and your detailed consideration of
-`osmdata`! :smile_cat: These responses are divided into into two classes: Points which we
-can easily respond to and in some cases already have and those for which we feel more discussion (with the reviewer) and thinking (on our side) is needed.
+`osmdata`! :smile_cat: These responses are divided into into two classes:
+
+- Points which we
+can easily respond to and in some cases already have.
+- Those for which we feel more discussion (with the reviewer and potentially others) and thinking (on our side) is needed.
 
 Note that collective pronouns refer here to @mpadge, @RobinLovelace, and
 @maelle, unless otherwise explicitly indicated.
@@ -11,9 +14,9 @@ First start with the easy bits :cake::
 
 1. `NULL` assignment in function def rather than verbose re-def of `missing ->
    NULL`: Already [done](https://github.com/osmdatar/osmdata/commit/b0d304c7722553fdb983d242c6032b1875a74d4f); thanks!
-3. Message produced on `quiet = TRUE` - yep, ought not to have been there and
+3. Message produced on `quiet = TRUE` - agreed, ought not to have been there and
    has already been removed.
-4. Return of `osmdata_sp` - yeah, you're right, that was an inappropriate
+4. Return of `osmdata_sp` - agreed: an inappropriate
    mis-interpretation of `sp`, and has already been rectified.  `osmdata`
    objects nevertheless remain divided into the two respective `osmdata` types
    of `lines / multilines` and `polygons / multipolygons`, with `sp` forms now
@@ -21,7 +24,7 @@ First start with the easy bits :cake::
    `multi_` or not. The lack of distinction in `sp` between `lines / multilines`
    and `polys / multipolys` is a non-issue, because the OSM itself makes a
    fundamental distinction between these two to which `osmdata` adheres.
-5. `configure` message re: `unexpected operator` - yeah, that's no longer
+5. `configure` message re: `unexpected operator` - agreed, that's no longer
    required for `codecov` anyway, so will be fixed.
 6. Link to claim of being faster than `sf/GDAL` is dead: Already fixed - thanks!
 7. Link to `sfa` in vignette#2: Fixed - thanks once more!
@@ -31,9 +34,10 @@ First start with the easy bits :cake::
 Now on to those points regarding which we are uncertain how best to respond. :chestnut:
 
 ### Code 
+
 1. Class definition: we entirely agree with you here, but are unsure how best to
    resolve the issue. While a simple `structure (list(), class = 'osmdata')` is
-   a great suggestion, the class def is strictly required (as far as we all
+   a great suggestion, the class def is strictly required (as far as we
    understand it) in order to provide the `print.osmdata` and `c.osmdata`
    functionality. These are both utterly necessary: The first to avoid all data
    being dumped to screen; and the second because it's enormously useful for
@@ -52,14 +56,15 @@ Now on to those points regarding which we are uncertain how best to respond. :ch
    classes of those objects are appropriate to the call, with extensive tests
    throwing a range of incompatible objects in there, and generating
    appropriately informative messages. 
+   
    > When the query call is added to the returned object
    (e.g. by osmdata_xml) this guarantee can be given, and ambiguity is excluded.
    
-   The query call, `q1` is added to the returned object, so i (MP) am unsure
+   The query call, `q1` is added to the returned object, so I (MP) am unsure
    what to make of this.
    
 3. Comment that it's confusing that `osmdata_sf (q, doc)` writes *from* `doc` into
-   `sf`, yet `osmdata_xml (q, doc)` writes *to* `doc` - um, yeah, i (MP) hadn't
+   `sf`, yet `osmdata_xml (q, doc)` writes *to* `doc`. I (MP) hadn't
    thought of it that way, but that could certainly be somewhat confusing. I am,
    however, unsure of how to resolve this. I like the simplicity of a mere three
    main functions all of form `osmdata_abc()`, with similar arguments in all
@@ -96,7 +101,13 @@ Now on to those points regarding which we are uncertain how best to respond. :ch
    That's true, and mainly because our current vision of `osmdata` is as a
    coherent package that serves the singular purpose of getting OSM data into
    `R` in a way that most faithfully represents the structure and intent of OSM
-   itself. 'Networks' are not a part of OSM - they are a post-imposition by
+   itself.
+   
+   We encourage others to add functionality building on `osmdata` for routing,
+   e.g. building on the idea of `stplanr::SpatialLinesNetwork()` or a
+   [`spnetwork`](https://github.com/edzer/spnetwork) package (RL).
+   
+   'Networks' are not a part of OSM - they are a post-imposition by
    others wishing to use OSM for routing. We're simply not sure at present
    whether such arguably non-OSM functionality belongs in this package. A
    function to 'expose the network' has already been constructed as described in

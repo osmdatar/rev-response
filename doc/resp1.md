@@ -1,5 +1,5 @@
 Thanks @edzer for the useful comments and your detailed consideration of
-`osmdata`.  These responses are divided into into three classes: Points which we
+`osmdata`! :smile_cat: These responses are divided into into three classes: Points which we
 definitely will respond to ('shall do'); those which we would like to yet remain
 uncertain how best to ('would like to do'); and those with which we will remain
 in disagreement until potentially convinced otherwise ('shall not do').

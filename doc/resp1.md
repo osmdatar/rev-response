@@ -14,16 +14,7 @@ will certainly do so in response to @edzer's comments:
 
 1. `NULL` assignment in function def rather than verbose re-def of `missing ->
    NULL`: Already done; thanks!
-2. Class definition: we entirely agree with you here, but are unsure how best to
-   resolve the issue. While a simple `structure (list(), class = 'osmdata')` is
-   a great suggestion, the class def is strictly required (as far as we all
-   understand it) in order to provide the `print.osmdata` and `c.osmdata`
-   functionality. These are both utterly necessary: The first to avoid all data
-   being dumped to screen; and the second because it's enormously useful for
-   combining query results within `R`. If you - or anyone else - can suggest
-   ways to effectively `print` and `c` without defining a class, we'd be more
-   than happy to remove the class def entirely.
-3. Claim that it's confusing that `osmdata_sf (q, doc)` writes *from* `doc` into
+2. Claim that it's confusing that `osmdata_sf (q, doc)` writes *from* `doc` into
    `sf`, yet `osmdata_xml (q, doc)` writes *to* `doc` - um, yeah, i (MP) hadn't
    thought of it that way, but that could certainly be somewhat confusing. I am,
    however, unsure of how to resolve this. I like the simplicity of a mere three
@@ -56,7 +47,16 @@ will certainly do so in response to @edzer's comments:
 
 Now on to those points regarding which we are uncertain how best to respond.
 
-1.
+1. Class definition: we entirely agree with you here, but are unsure how best to
+   resolve the issue. While a simple `structure (list(), class = 'osmdata')` is
+   a great suggestion, the class def is strictly required (as far as we all
+   understand it) in order to provide the `print.osmdata` and `c.osmdata`
+   functionality. These are both utterly necessary: The first to avoid all data
+   being dumped to screen; and the second because it's enormously useful for
+   combining query results within `R`. If you - or anyone else - can suggest
+   ways to effectively `print` and `c` without defining a class, we'd be more
+   than happy to remove the class def entirely.
+2.
    > osmar ... can do shortest paths through a network, and
    exposes the street network to R users (combining sp and igraph), osmdata does
    not expose the network.
@@ -74,7 +74,7 @@ Now on to those points regarding which we are uncertain how best to respond.
    functionality, or broader ranges thereof. The upcoming fragmentation of
    `devtools` into numerous individual packages certainly reifies Hadley's
    view on that, by which we're inclined to abide.
-2. 
+3. 
    > It seems that `q1` (in the call `x <- osmdata_sf(q1, "data.xml")`) is added
       to the return object which takes its data from "data.xml" 
 
@@ -90,7 +90,7 @@ Now on to those points regarding which we are uncertain how best to respond.
    
    The query call, `q1` is added to the returned object, so i (MP) am unsure
    what to make of this.
-3. 
+4. 
    > It would help to memorize what [the functions] do if [the function names]
    contain verbs
    
@@ -100,7 +100,7 @@ Now on to those points regarding which we are uncertain how best to respond.
    `osmdata_get_abs()`, but we don't really see that as adding anything
    constructive. We'll nevertheless have a ponder in regard to other function
    names.
-4. The very important question raised just before the list of 'Minor things':
+5. The very important question raised just before the list of 'Minor things':
    > Do `R` users need to learn the OSM Overpass API query call language?
    
    We wish we could give a clear answer to this, but alas can not. The `osmdata`

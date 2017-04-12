@@ -108,7 +108,7 @@ Now on to those points regarding which we are uncertain how best to respond. :ch
    [`spnetwork`](https://github.com/edzer/spnetwork) package (RL).
    
    'Networks' are not a part of OSM - they are a post-imposition by
-   others wishing to use OSM for routing. We're simply not sure at present
+   others wishing to use OSM for routing (e.g. OSRM). We're unsure
    whether such arguably non-OSM functionality belongs in this package. A
    function to 'expose the network' has already been constructed as described in
    [this `osmdata` issue](https://github.com/osmdatar/osmdata/issues/39).
@@ -117,6 +117,9 @@ Now on to those points regarding which we are uncertain how best to respond. :ch
    functionality, or broader ranges thereof. The upcoming fragmentation of
    `devtools` into numerous individual packages certainly reifies Hadley's
    view on that, by which we're inclined to abide.
+   
+   Further the concept that packages should 'do one thing unambiguously and
+   do it well' is a sensible design philosophy we hope `osmdata` follows.
    
 2. The very important question raised just before the list of 'Minor things':
    > Do `R` users need to learn the OSM Overpass API query call language?

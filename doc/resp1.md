@@ -57,18 +57,8 @@ Now on to those points regarding which we are uncertain how best to respond. :ch
    
    The query call, `q1` is added to the returned object, so i (MP) am unsure
    what to make of this.
-3. 
-   > It would help to memorize what [the functions] do if [the function names]
-   contain verbs
    
-   yeah, we entirely agree as a general point, but as mentioned above, we also
-   favour the simplicity of `osmdata_abc()` for the three primary functions.
-   Extra verbs would likely best be incorporated by simply renaming these to
-   `osmdata_get_abc()`, but we don't really see that as adding anything
-   constructive. We'll nevertheless have a ponder in regard to other function
-   names.
-   
-4. Comment that it's confusing that `osmdata_sf (q, doc)` writes *from* `doc` into
+3. Comment that it's confusing that `osmdata_sf (q, doc)` writes *from* `doc` into
    `sf`, yet `osmdata_xml (q, doc)` writes *to* `doc` - um, yeah, i (MP) hadn't
    thought of it that way, but that could certainly be somewhat confusing. I am,
    however, unsure of how to resolve this. I like the simplicity of a mere three
@@ -82,6 +72,17 @@ Now on to those points regarding which we are uncertain how best to respond. :ch
    the admittedly present yet likely quite mild confusion highlighted here, or
    unnecessarily breaking a currently very simple one-liner into two distinct
    functions? I simply don't know at present, but would welcome any suggestions.
+4. 
+   > It would help to memorize what [the functions] do if [the function names]
+   contain verbs
+   
+   yeah, we entirely agree as a general point, but as mentioned above, we also
+   favour the simplicity of `osmdata_abc()` for the three primary functions.
+   Extra verbs would likely best be incorporated by simply renaming these to
+   `osmdata_get_abc()`, but we don't really see that as adding anything
+   constructive. We'll nevertheless have a ponder in regard to other function
+   names.
+
 
 
 ### Package functionality

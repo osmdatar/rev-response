@@ -28,7 +28,7 @@ First start with the easy bits :cake::
 
 ## open issues pending further discussion / debate :construction_worker:
 
-Now on to those points regarding which we are uncertain how best to respond.
+Now on to those points regarding which we are uncertain how best to respond. :chestnut:
 
 1. Class definition: we entirely agree with you here, but are unsure how best to
    resolve the issue. While a simple `structure (list(), class = 'osmdata')` is

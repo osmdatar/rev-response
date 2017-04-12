@@ -1,13 +1,11 @@
 Thanks @edzer for the useful comments and your detailed consideration of
-`osmdata`! :smile_cat: These responses are divided into into three classes: Points which we
-definitely will respond to ('shall do'); those which we would like to yet remain
-uncertain how best to ('would like to do'); and those with which we will remain
-in disagreement until potentially convinced otherwise ('shall not do').
+`osmdata`! :smile_cat: These responses are divided into into two classes: Points which we
+can easily respond to and in some cases already have and those for which we feel more discussion (with the reviewer) and thinking (on our side) is needed.
 
 Note that collective pronouns refer here to @mpadge, @RobinLovelace, and
 @maelle, unless otherwise explicitly indicated.
 
-## shall do
+## easy to solve issues :sunglasses:
 
 First start with the easy bits which we oughta coulda shoulda done better and
 will certainly do so in response to @edzer's comments:
@@ -43,7 +41,7 @@ will certainly do so in response to @edzer's comments:
 6. Link to claim of being faster than `sf/GDAL` is dead: Already fixed - thanks!
 7. Link to `sfa` in vignette#2: Fixed - thanks once more!
 
-## would like to do
+## open issues pending further discussion / debate :construction_worker:
 
 Now on to those points regarding which we are uncertain how best to respond.
 
@@ -115,9 +113,7 @@ Now on to those points regarding which we are uncertain how best to respond.
    use of `osmdata`? We would certainly hope so. Where can we best strike the
    balance there between? ... We don't know, but hope we've given it a good shot.
 
-## shall not do
-
-1. 
+6. 
    > it would be good to also mention that osmdata reads openstreetmap vector
     data, as opposed to e.g. package OpenStreetMap which imports openstreetmap
     raster data (images).
@@ -131,7 +127,7 @@ Now on to those points regarding which we are uncertain how best to respond.
    **data**. The package `OpenStreetMap` is in no way directly connected with
    OSM, and does not directly deliver OSM **data**; it merely renders them in
    visual form.
-2. ''Performance, comparison'' and speed: With due apology for the dead link
+7. ''Performance, comparison'' and speed: With due apology for the dead link
 mentioned above, the presented figures nevertheless reveal that `osmdata` is
 indeed >20% faster than `sf/GDAL`. Is `GDAL` very fast? Surely so. More
 importantly, are either `sf` or `osmdata` very fast in comparison to the
@@ -141,7 +137,7 @@ given numbers, but the answer is yes by factors of thousands. Both `sf/GDAL` and
 that's a justification for claiming ''very fast''? Compared to all other
 currently possible alternatives, it is so. And finally, 20% faster than the
 current fastest surely represents an improvement?
-3. Changing the `config` file of the `GDAL` OSM driver:
+8. Changing the `config` file of the `GDAL` OSM driver:
 Other than explicit customisation of which `key` fields ought to be returned,
 the only options that the `GDAL config` file enables are potentially
 returning all points and all ways. There still remains no way within
@@ -156,7 +152,7 @@ data, and we stand by the claims of our second vignette that `osmdata` remains
 generally ''truer'' to the underlying structure of OSM data (with due
 acknowledgement in that vignette that the entire `SF` scheme was never intended
 for such purposes, so that claim ought not be interpreted as a criticism!).
-3. 
+9. 
    > I wonder, for an end-users, what the value is of getting a point set that
    consists of not only point features (such as traffic lights, or way signs)
    but also all vertices in lines and polygons. 

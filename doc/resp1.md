@@ -1,9 +1,9 @@
 Thanks @edzer for the useful comments and your detailed consideration of
 `osmdata`! :smile_cat: These responses are divided into into two classes:
 
-- Points which we
-can easily respond to and in some cases already have.
-- Those for which we feel more discussion (with the reviewer and potentially others) and thinking (on our side) is needed.
+- Points which we can easily respond to and in some cases already have.
+- Those for which we feel more discussion (with the reviewer and potentially
+  others) and thinking (on our side) is needed.
 
 Note that collective pronouns refer here to @mpadge, @RobinLovelace, and
 @maelle, unless otherwise explicitly indicated.
@@ -13,7 +13,9 @@ Note that collective pronouns refer here to @mpadge, @RobinLovelace, and
 First start with the easy bits :cake::
 
 1. `NULL` assignment in function def rather than verbose re-def of `missing ->
-   NULL`: Already [done](https://github.com/osmdatar/osmdata/commit/b0d304c7722553fdb983d242c6032b1875a74d4f); thanks!
+   NULL`: Already 
+   [done](https://github.com/osmdatar/osmdata/commit/b0d304c7722553fdb983d242c6032b1875a74d4f); 
+   thanks!
 3. Message produced on `quiet = TRUE` - agreed, ought not to have been there and
    has already been removed.
 4. Return of `osmdata_sp` - agreed: an inappropriate
@@ -27,7 +29,10 @@ First start with the easy bits :cake::
 5. `configure` message re: `unexpected operator` - agreed, that's no longer
    required for `codecov` anyway, so will be fixed.
 6. Link to claim of being faster than `sf/GDAL` is dead: Already fixed - thanks!
-(RL: I hope to add a benchmark comparing with `osmar` which in my experience is painfully slow. The example benchmark is useful, would be interesting to build on it by a) downloading some data also and b) comparing against larger datasets.)
+(RL: I hope to add a benchmark comparing with `osmar` which in my experience is
+painfully slow. The example benchmark is useful, would be interesting to build
+on it by a) downloading some data also and b) comparing against larger
+datasets.)
 
 7. Link to `sfa` in vignette#2: Fixed - thanks once more!
 
@@ -158,8 +163,8 @@ Now on to those points regarding which we are uncertain how best to respond. :ch
    OSM, and does not directly deliver OSM data; it merely renders them in
    visual form.
    
-   I (RL) would like to mention how `osmdata` differs from the very different `OpenStreetMap` package,
-   however, to avoid cofusion around names.
+   I (RL) would like to mention how `osmdata` differs from the very different
+   `OpenStreetMap` package, however, to avoid cofusion around names.
 
 4. 
    > I wonder, for an end-users, what the value is of getting a point set that
@@ -185,7 +190,8 @@ complete data because even with `config` set to full volume, `GDAL` strips all
 object IDs, and so prevents any ability to assemble and dissemble geometrically
 distinct components.
 
-I would be interested in adding an argument to `osmdata::osm_points()` (or a new function - thoughts @edzer?) that allows this (RL).
+I would be interested in adding an argument to `osmdata::osm_points()` (or a new
+function - thoughts @edzer?) that allows this (RL).
 
 ### Comparison with `GDAL`
 
@@ -195,7 +201,7 @@ speed and usage differences with the 'raw' way of doing things.
 
 With due apology for the now-rectified
 dead link mentioned above, the presented figures nevertheless reveal that
-`osmdata` appears to be ~20% faster than `sf/GDAL`. Is `GDAL` very fast? Surely so.
+`osmdata` is indeed >20% faster than `sf/GDAL`. Is `GDAL` very fast? Surely so.
 More importantly, are either `sf` or `osmdata` very fast in comparison to the
 long-standing singular alternative for getting OSM data into R? We can't even
 given numbers, but the answer is yes by factors of thousands. Both `sf/GDAL` and
@@ -222,7 +228,8 @@ for such purposes, so that claim ought not be interpreted as a criticism!).
 
 ## Thankfulness
 
-Note that we consciously didn't acknowledge @edzer's contributions prior to review but will definitely do it after review with a double role:
+Note that we consciously didn't acknowledge @edzer's contributions prior to
+review but will definitely do it after review with a double role:
 
 * `cph` of `sf` code :sparkles:
 

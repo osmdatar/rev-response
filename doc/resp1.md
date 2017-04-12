@@ -90,10 +90,7 @@ Now on to those points regarding which we are uncertain how best to respond. :ch
    constructive. We'll nevertheless have a ponder in regard to other function
    names.
 
-
-
 ### Package functionality
-
 
 1.
    > osmar ... can do shortest paths through a network, and
@@ -143,7 +140,7 @@ Now on to those points regarding which we are uncertain how best to respond. :ch
    complex queries nevertheless remain possible. Do `R` users need to learn the
    QL? We would certainly hope not. Would learning the QL enable more powerful
    use of `osmdata`? We would certainly hope so. Where can we best strike the
-   balance there between? ... We don't know, but hope we've given it a good shot.
+   balance there between? ... We don't know, but we've given it a good shot.
   
 3. 
    > it would be good to also mention that osmdata reads openstreetmap vector
@@ -152,13 +149,17 @@ Now on to those points regarding which we are uncertain how best to respond. :ch
 
    We don't agree here because `osmdata` simply reads data from OpenStreetMap in
    a form that reflects as accurately as possible the underlying form of OSM,
-   which is a vector form. Raster images have nothing to do with OSM *data* -
+   which is a vector form.
+   Raster images have nothing to do with OSM *data* -
    they are only used by OSM to generate tiles for their web interface, which in
    turn merely serves to visualise the underlying data.  That's why the
    package is called `osmdata` and not `osm` (or whatever). It's about the
    data. The package `OpenStreetMap` is in no way directly connected with
    OSM, and does not directly deliver OSM data; it merely renders them in
    visual form.
+   
+   I (RL) would like to mention how `osmdata` differs from the very different `OpenStreetMap` package,
+   however, to avoid cofusion around names.
 
 4. 
    > I wonder, for an end-users, what the value is of getting a point set that

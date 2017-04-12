@@ -27,6 +27,8 @@ First start with the easy bits :cake::
 5. `configure` message re: `unexpected operator` - agreed, that's no longer
    required for `codecov` anyway, so will be fixed.
 6. Link to claim of being faster than `sf/GDAL` is dead: Already fixed - thanks!
+(RL: I hope to add a benchmark comparing with `osmar` which in my experience is painfully slow. The example benchmark is useful, would be interesting to build on it by a) downloading some data also and b) comparing against larger datasets.)
+
 7. Link to `sfa` in vignette#2: Fixed - thanks once more!
 
 ## open issues pending further discussion / debate :construction_worker:

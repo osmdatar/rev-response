@@ -7,8 +7,7 @@ Note that collective pronouns refer here to @mpadge, @RobinLovelace, and
 
 ## easy to solve issues :sunglasses:
 
-First start with the easy bits which we oughta coulda shoulda done better and
-will certainly do so in response to @edzer's comments:
+First start with the easy bits :cake::
 
 1. `NULL` assignment in function def rather than verbose re-def of `missing ->
    NULL`: Already done; thanks!

@@ -97,7 +97,7 @@ Now on to those points regarding which we are uncertain how best to respond.
    yeah, we entirely agree as a general point, but as mentioned above, we also
    favour the simplicity of `osmdata_abc()` for the three primary functions.
    Extra verbs would likely best be incorporated by simply renaming these to
-   `osmdata_get_abs()`, but we don't really see that as adding anything
+   `osmdata_get_abc()`, but we don't really see that as adding anything
    constructive. We'll nevertheless have a ponder in regard to other function
    names.
 5. The very important question raised just before the list of 'Minor things':

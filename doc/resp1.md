@@ -11,20 +11,6 @@ First start with the easy bits :cake::
 
 1. `NULL` assignment in function def rather than verbose re-def of `missing ->
    NULL`: Already done; thanks!
-2. Claim that it's confusing that `osmdata_sf (q, doc)` writes *from* `doc` into
-   `sf`, yet `osmdata_xml (q, doc)` writes *to* `doc` - um, yeah, i (MP) hadn't
-   thought of it that way, but that could certainly be somewhat confusing. I am,
-   however, unsure of how to resolve this. I like the simplicity of a mere three
-   main functions all of form `osmdata_abc()`, with similar arguments in all
-   cases. All functions can or do return data of the form specified after that
-   subscript, so that's consistent. The only inconsistency is that
-   `osmdata_xml()` also enables `doc` to be *written*. Making this any neater
-   would likely require adding an additional step, so `osmdata_xml()` would
-   purely serve to import into `R`, with an additional stage required to
-   potentially write back to `xml`. I'm not sure what would be less confusing:
-   the admittedly present yet likely quite mild confusion highlighted here, or
-   unnecessarily breaking a currently very simple one-liner into two distinct
-   functions? I simply don't know at present, but would welcome any suggestions.
 3. Message produced on `quiet = TRUE` - yep, ought not to have been there and
    has already been removed.
 4. Return of `osmdata_sp` - yeah, you're right, that was an inappropriate
@@ -173,3 +159,17 @@ assemble and dissemble any and all data components within an `R` environment.
 not extract complete data because even with `config` set to full volume, `GDAL`
 strips all object IDs, and so prevents any ability to assemble and dissemble
 geometrically distinct components.
+10. Comment that it's confusing that `osmdata_sf (q, doc)` writes *from* `doc` into
+   `sf`, yet `osmdata_xml (q, doc)` writes *to* `doc` - um, yeah, i (MP) hadn't
+   thought of it that way, but that could certainly be somewhat confusing. I am,
+   however, unsure of how to resolve this. I like the simplicity of a mere three
+   main functions all of form `osmdata_abc()`, with similar arguments in all
+   cases. All functions can or do return data of the form specified after that
+   subscript, so that's consistent. The only inconsistency is that
+   `osmdata_xml()` also enables `doc` to be *written*. Making this any neater
+   would likely require adding an additional step, so `osmdata_xml()` would
+   purely serve to import into `R`, with an additional stage required to
+   potentially write back to `xml`. I'm not sure what would be less confusing:
+   the admittedly present yet likely quite mild confusion highlighted here, or
+   unnecessarily breaking a currently very simple one-liner into two distinct
+   functions? I simply don't know at present, but would welcome any suggestions.

@@ -124,7 +124,14 @@ Now on to those points regarding which we are uncertain how best to respond. :ch
 2. The very important question raised just before the list of 'Minor things':
    > Do `R` users need to learn the OSM Overpass API query call language?
    
-   We wish we could give a clear answer to this, but alas can not. The `osmdata`
+   We cannot provide a clear answer to this question.
+   A analogous question would be 'can `st_read()` be used/understood without
+   learning GDAL?'. Yes it can be used and it mercifully makes life easier,
+   but understanding the back-end code-base will greatly help.
+   We have tried to communicate this in the vignette but are open to ideas
+   for improving the communication of this message.
+   
+   The `osmdata`
    package is an attempt to facilitate direct access to OSM data without the
    need to understand this sometimes non-trivial query language (QL). It comes
    down to a compromise between breadth and depth. We've aimed for a good

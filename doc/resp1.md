@@ -10,7 +10,7 @@ Note that collective pronouns refer here to @mpadge, @RobinLovelace, and
 First start with the easy bits :cake::
 
 1. `NULL` assignment in function def rather than verbose re-def of `missing ->
-   NULL`: Already done; thanks!
+   NULL`: Already [done](https://github.com/osmdatar/osmdata/commit/b0d304c7722553fdb983d242c6032b1875a74d4f); thanks!
 3. Message produced on `quiet = TRUE` - yep, ought not to have been there and
    has already been removed.
 4. Return of `osmdata_sp` - yeah, you're right, that was an inappropriate

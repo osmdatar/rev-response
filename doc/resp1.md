@@ -131,10 +131,10 @@ Now on to those points regarding which we are uncertain how best to respond. :ch
    a form that reflects as accurately as possible the underlying form of OSM,
    which is a vector form. Raster images have nothing to do with OSM *data* -
    they are only used by OSM to generate tiles for their web interface, which in
-   turn merely serves to visualise the underlying **data**.  That's why the
+   turn merely serves to visualise the underlying data.  That's why the
    package is called `osmdata` and not `osm` (or whatever). It's about the
-   **data**. The package `OpenStreetMap` is in no way directly connected with
-   OSM, and does not directly deliver OSM **data**; it merely renders them in
+   data. The package `OpenStreetMap` is in no way directly connected with
+   OSM, and does not directly deliver OSM data; it merely renders them in
    visual form.
 
 4. 

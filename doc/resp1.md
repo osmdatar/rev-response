@@ -167,7 +167,7 @@ Now on to those points regarding which we are uncertain how best to respond. :ch
    but also all vertices in lines and polygons. 
 
    The package simply aims to bring OSM data into `R` in a form that resembles as
-closely as possible the entire philosophy and structure of OSM data itself.
+closely as possible the structure and design of OSM data itself.
 Points would only be removed because of some arbitrary decision on our part that
 they are somehow not as important as other data components - it is an assuredly
 far more neutral design decision to simply leave the data in as intact a form as
@@ -185,11 +185,17 @@ complete data because even with `config` set to full volume, `GDAL` strips all
 object IDs, and so prevents any ability to assemble and dissemble geometrically
 distinct components.
 
+I would be interested in adding an argument to `osmdata::osm_points()` (or a new function - thoughts @edzer?) that allows this (RL).
+
 ### Comparison with `GDAL`
 
-1. ''Performance, comparison'' and speed: With due apology for the now-rectified
+1. ''Performance, comparison'' and speed: this is a useful benchmark, which
+I (RL) think a modified version of would be useful in the vignette to illustrate
+speed and usage differences with the 'raw' way of doing things.
+
+With due apology for the now-rectified
 dead link mentioned above, the presented figures nevertheless reveal that
-`osmdata` is indeed >20% faster than `sf/GDAL`. Is `GDAL` very fast? Surely so.
+`osmdata` appears to be ~20% faster than `sf/GDAL`. Is `GDAL` very fast? Surely so.
 More importantly, are either `sf` or `osmdata` very fast in comparison to the
 long-standing singular alternative for getting OSM data into R? We can't even
 given numbers, but the answer is yes by factors of thousands. Both `sf/GDAL` and
@@ -197,6 +203,7 @@ given numbers, but the answer is yes by factors of thousands. Both `sf/GDAL` and
 that's a justification for claiming ''very fast''? Compared to all other
 currently possible alternatives, it is so. And finally, 20% faster than the
 current fastest surely represents an improvement?
+
 8. Changing the `config` file of the `GDAL` OSM driver:
 Other than explicit customisation of which `key` fields ought to be returned,
 the only options that the `GDAL config` file enables are potentially

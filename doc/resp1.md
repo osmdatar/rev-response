@@ -147,25 +147,26 @@ closely as possible the entire philosophy and structure of OSM data itself.
 Points would only be removed because of some arbitrary decision on our part that
 they are somehow not as important as other data components - it is an assuredly
 far more neutral design decision to simply leave the data in as intact a form as
-possible, and thereby enable the widest possible range of possible usage. Points
+possible, and thereby enable the widest possible range of potential usage. Points
 that are part of other objects can be readily 'filtered' out through judicious
-use of `c.osmdata` functionality. More importantly, OSM demands unique ID labels
-on all components so that they can always be connected together: all points
-within a line, all lines which contain any given point, all whatever which are
-within or contain bits of whatever else. We see no need to remove or reduce the
-ability of `osmdata` to transfer as directly as possible such abilities to
-assemble and dissemble any and all data components within an `R` environment.
-`osmdata` brings OSM data into `R` it its entirety; the `GDAL` OSM driver does
-not extract complete data because even with `config` set to full volume, `GDAL`
-strips all object IDs, and so prevents any ability to assemble and dissemble
-geometrically distinct components.
+use of `c.osmdata` functionality (and simple `!(points$id %in% lines$id)`-type
+expressions). More importantly, OSM demands unique ID labels on all components
+so that they can always be connected together: all points within a line, all
+lines which contain any given point, all whatever which are within or contain
+bits of whatever else.  We see no need to remove or reduce the ability of
+`osmdata` to transfer as directly as possible such abilities to assemble and
+dissemble any and all data components within an `R` environment.  `osmdata`
+brings OSM data into `R` it its entirety; the `GDAL` OSM driver does not extract
+complete data because even with `config` set to full volume, `GDAL` strips all
+object IDs, and so prevents any ability to assemble and dissemble geometrically
+distinct components.
 
 ### Comparison with `GDAL`
 
-1. ''Performance, comparison'' and speed: With due apology for the dead link
-mentioned above, the presented figures nevertheless reveal that `osmdata` is
-indeed >20% faster than `sf/GDAL`. Is `GDAL` very fast? Surely so. More
-importantly, are either `sf` or `osmdata` very fast in comparison to the
+1. ''Performance, comparison'' and speed: With due apology for the now-rectified
+dead link mentioned above, the presented figures nevertheless reveal that
+`osmdata` is indeed >20% faster than `sf/GDAL`. Is `GDAL` very fast? Surely so.
+More importantly, are either `sf` or `osmdata` very fast in comparison to the
 long-standing singular alternative for getting OSM data into R? We can't even
 given numbers, but the answer is yes by factors of thousands. Both `sf/GDAL` and
 `osmdata` are very fast, yet `osmdata` remains nevertheless the fastest. Surely

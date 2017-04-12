@@ -1,4 +1,4 @@
-Thanks edzer for the useful comments and your detailed consideration of
+Thanks @edzer for the useful comments and your detailed consideration of
 `osmdata`.  These responses are divided into into three classes: Points which we
 definitely will respond to ('shall do'); those which we would like to yet remain
 uncertain how best to ('would like to do'); and those with which we will remain
@@ -40,10 +40,10 @@ will certainly do so in response to @edzer's comments:
 3. Message produced on `quiet = TRUE` - yep, ought not to have been there and
    has already been removed.
 4. Return of `osmdata_sp` - yeah, you're right, that was an inappropriate
-   mis-interpretaion of `sp`, and has already been recitified.  `osmdata`
+   mis-interpretation of `sp`, and has already been rectified.  `osmdata`
    objects nevertheless remain divided into the two respective `osmdata` types
    of `lines / multilines` and `polygons / multipolygons`, with `sp` forms now
-   simpply declaring these as `SpatialLines` and `SpatialPolygons` regardless of
+   simply declaring these as `SpatialLines` and `SpatialPolygons` regardless of
    `multi_` or not. The lack of distinction in `sp` between `lines / multilines`
    and `polys / multipolys` is a non-issue, because the OSM itself makes a
    fundamental distinction between these two to which `osmdata` adheres.

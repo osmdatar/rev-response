@@ -187,3 +187,10 @@ generally ''truer'' to the underlying structure of OSM data (with due
 acknowledgement in that vignette that the entire `SF` scheme was never intended
 for such purposes, so that claim ought not be interpreted as a criticism!).
 
+## Thankfulness
+
+Note that we consciously didn't acknowledge @edzer's contributions prior to review but will definitely do it after review with a double role:
+
+* `cph` of `sf` code :sparkles:
+
+* `rev` because of the improvements of the package thanks to his review :ok_hand:

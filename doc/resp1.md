@@ -10,12 +10,11 @@ Note that collective pronouns refer here to @mpadge, @RobinLovelace, and
 
 ## easy to solve issues :sunglasses:
 
-First start with the easy bits :cake::
+First start with the easy bits :cake:, mostly already done with 
+[this commit](https://github.com/osmdatar/osmdata/commit/b0d304c7722553fdb983d242c6032b1875a74d4f):
 
 1. `NULL` assignment in function def rather than verbose re-def of `missing ->
-   NULL`: Already 
-   [done](https://github.com/osmdatar/osmdata/commit/b0d304c7722553fdb983d242c6032b1875a74d4f); 
-   thanks!
+   NULL`: Already done; thanks!
 3. Message produced on `quiet = TRUE` - agreed, ought not to have been there and
    has already been removed.
 4. Return of `osmdata_sp` - agreed: an inappropriate
@@ -50,7 +49,10 @@ Now on to those points regarding which we are uncertain how best to respond. :ch
    being dumped to screen; and the second because it's enormously useful for
    combining query results within `R`. If you - or anyone else - can suggest
    ways to effectively `print` and `c` without defining a class, we'd be more
-   than happy to remove the class def entirely.
+   than happy to remove the class def entirely. A solution is obviously strongly
+   desired, because we agree entirely that it can be nothing other than
+   confusing that the class constructor `osmdata()` is present yet neither can
+   nor should be used.
    
 2. 
    > It seems that `q1` (in the call `x <- osmdata_sf(q1, "data.xml")`) is added
@@ -68,7 +70,10 @@ Now on to those points regarding which we are uncertain how best to respond. :ch
    (e.g. by osmdata_xml) this guarantee can be given, and ambiguity is excluded.
    
    The query call, `q1` is added to the returned object, so I (MP) am unsure
-   what to make of this.
+   what to make of this. Note that `osmdata_xml()` really just returns the
+   `.xml/.osm` data directly from `overpass` with no post-processing, and so is
+   a fundamentally different function to `osmdata_sf()` and `osmdata_sp()`. The
+   latter two really don't use or rely on the functionality of `osmdata_xml()`.
    
 3. Comment that it's confusing that `osmdata_sf (q, doc)` writes *from* `doc` into
    `sf`, yet `osmdata_xml (q, doc)` writes *to* `doc`. I (MP) hadn't
@@ -120,32 +125,31 @@ Now on to those points regarding which we are uncertain how best to respond. :ch
    extent to which `R` packages should best encapsulate singularly focussed
    functionality, or broader ranges thereof. The upcoming fragmentation of
    `devtools` into numerous individual packages certainly reifies Hadley's
-   view on that, by which we're inclined to abide.
-   
-   Further the concept that packages should 'do one thing unambiguously and
-   do it well' is a sensible design philosophy we hope `osmdata` follows.
+   view on that, by which we're inclined to abide.  The concept that packages
+   should 'do one thing unambiguously and do it well' is a sensible design
+   philosophy we hope `osmdata` follows.
    
 2. The very important question raised just before the list of 'Minor things':
    > Do `R` users need to learn the OSM Overpass API query call language?
    
-   We cannot provide a clear answer to this question.
-   A analogous question would be 'can `st_read()` be used/understood without
-   learning GDAL?'. Yes it can be used and it mercifully makes life easier,
-   but understanding the back-end code-base will greatly help.
-   We have tried to communicate this in the vignette but are open to ideas
-   for improving the communication of this message.
+   We cannot provide a clear answer to this question.  A analogous question
+   would be 'can `sf::st_read()` be used/understood without learning GDAL?'. Yes
+   it can be used and it mercifully makes life easier, but understanding the
+   back-end code-base helps greatly.  We have tried to communicate this in the
+   vignette but are open to ideas for improving the communication of this
+   message.
    
-   The `osmdata`
-   package is an attempt to facilitate direct access to OSM data without the
-   need to understand this sometimes non-trivial query language (QL). It comes
-   down to a compromise between breadth and depth. We've aimed for a good
-   breadth, and so hope the vast majority of typical use cases can be executed
-   just by examining the `osmdata` documentation and forgetting entirely about
-   `overpass`. The depth has hopefully nevertheless been retained so truly
-   complex queries nevertheless remain possible. Do `R` users need to learn the
-   QL? We would certainly hope not. Would learning the QL enable more powerful
-   use of `osmdata`? We would certainly hope so. Where can we best strike the
-   balance there between? ... We don't know, but we've given it a good shot.
+   The `osmdata` package is an attempt to facilitate direct access to OSM data
+   without the need to understand this sometimes non-trivial query language
+   (QL). It comes down to a compromise between breadth and depth. We've aimed
+   for a good breadth, and so hope the vast majority of typical use cases can be
+   executed just by examining the `osmdata` documentation and forgetting
+   entirely about `overpass`. The depth has hopefully nevertheless been retained
+   so truly complex queries nevertheless remain possible. Do `R` users need to
+   learn the QL? We would certainly hope not. Would learning the QL enable more
+   powerful use of `osmdata`? We would certainly hope so. Where can we best
+   strike the balance there between? ... We don't know, but we've given it a
+   good shot.
   
 3. 
    > it would be good to also mention that osmdata reads openstreetmap vector
@@ -154,17 +158,17 @@ Now on to those points regarding which we are uncertain how best to respond. :ch
 
    We don't agree here because `osmdata` simply reads data from OpenStreetMap in
    a form that reflects as accurately as possible the underlying form of OSM,
-   which is a vector form.
-   Raster images have nothing to do with OSM *data* -
+   which is a vector form.  Raster images have nothing to do with OSM *data* -
    they are only used by OSM to generate tiles for their web interface, which in
-   turn merely serves to visualise the underlying data.  That's why the
-   package is called `osmdata` and not `osm` (or whatever). It's about the
-   data. The package `OpenStreetMap` is in no way directly connected with
-   OSM, and does not directly deliver OSM data; it merely renders them in
-   visual form.
+   turn merely serves to visualise the underlying data.  That's why the package
+   is called `osmdata` and not `osm` (or whatever). It's about the data. The
+   `R` package `OpenStreetMap` is in no way directly connected with OSM, and
+   does not directly deliver OSM data; it merely renders them in visual form.
    
-   I (RL) would like to mention how `osmdata` differs from the very different
-   `OpenStreetMap` package, however, to avoid cofusion around names.
+   We nevertheless acknowledge in response to this concern the importance of 
+   mentioning how `osmdata` differs from the very different `OpenStreetMap`
+   package, in order to avoid cofusion around names, and have flagged this task
+   in an [`osmdata` issue](https://github.com/osmdatar/osmdata/issues/59).
 
 4. 
    > I wonder, for an end-users, what the value is of getting a point set that
@@ -176,22 +180,34 @@ closely as possible the structure and design of OSM data itself.
 Points would only be removed because of some arbitrary decision on our part that
 they are somehow not as important as other data components - it is an assuredly
 far more neutral design decision to simply leave the data in as intact a form as
-possible, and thereby enable the widest possible range of potential usage. Points
-that are part of other objects can be readily 'filtered' out through judicious
-use of `c.osmdata` functionality (and simple `!(points$id %in% lines$id)`-type
-expressions). More importantly, OSM demands unique ID labels on all components
-so that they can always be connected together: all points within a line, all
-lines which contain any given point, all whatever which are within or contain
-bits of whatever else.  We see no need to remove or reduce the ability of
-`osmdata` to transfer as directly as possible such abilities to assemble and
-dissemble any and all data components within an `R` environment.  `osmdata`
-brings OSM data into `R` it its entirety; the `GDAL` OSM driver does not extract
-complete data because even with `config` set to full volume, `GDAL` strips all
-object IDs, and so prevents any ability to assemble and dissemble geometrically
-distinct components.
+possible, and thereby enable the widest possible range of potential usage.
+OSM demands unique ID labels on all components so that they can always be
+connected together: all points within a line, all lines which contain any given
+point, all whatever which are within or contain bits of whatever else.  We see
+no need to remove or reduce the ability of `osmdata` to transfer as directly as
+possible such abilities to assemble and dissemble any and all data components
+within an `R` environment.  `osmdata` brings OSM data into `R` it its entirety;
+the `GDAL` OSM driver does not extract complete data because even with `config`
+set to full volume, `GDAL` strips all object IDs, and so prevents any ability to
+assemble and dissemble geometrically distinct components.
 
-I would be interested in adding an argument to `osmdata::osm_points()` (or a new
-function - thoughts @edzer?) that allows this (RL).
+   Nevertheless, in response to this legitimate concern, we have decided on the
+   following package modifications:
+      - The primary `osmdata_...()` functions shall remain as they are and
+        import **all** OSM data, to ensure that they remain as true as possible
+        to the underlying data model of OSM itself; but
+      - We will implement a new function (see 
+         [this `osmdata` issue](https://github.com/osmdatar/osmdata/issues/60)
+         that enables reduction of a given `osmdata` object to include only
+         unique elements of each geometric class.  The result of this will then
+         more closely resemble the output of GDAL, while retaining the primary
+         difference described above that `osmdata` will still retain all
+         individual OSM IDs for all components.
+
+   We nevertheless note in direct response to the above concern that a use case
+   would be routing to minimse numbers of traffic lights, which could only be
+   done through storing all points as `point` objects in addition to their
+   presence as line and polygon vertices.
 
 ### Comparison with `GDAL`
 
@@ -199,18 +215,18 @@ function - thoughts @edzer?) that allows this (RL).
 I (RL) think a modified version of would be useful in the vignette to illustrate
 speed and usage differences with the 'raw' way of doing things.
 
-With due apology for the now-rectified
-dead link mentioned above, the presented figures nevertheless reveal that
-`osmdata` is indeed >20% faster than `sf/GDAL`. Is `GDAL` very fast? Surely so.
-More importantly, are either `sf` or `osmdata` very fast in comparison to the
-long-standing singular alternative for getting OSM data into R? We can't even
-given numbers, but the answer is yes by factors of thousands. Both `sf/GDAL` and
-`osmdata` are very fast, yet `osmdata` remains nevertheless the fastest. Surely
-that's a justification for claiming ''very fast''? Compared to all other
-currently possible alternatives, it is so. And finally, 20% faster than the
-current fastest surely represents an improvement?
+   With due apology for the now-rectified dead link mentioned above, the
+   presented figures nevertheless reveal that `osmdata` is indeed >20% faster
+   than `sf/GDAL`. Is `GDAL` very fast? Surely so.  More importantly, are either
+   `sf` or `osmdata` very fast in comparison to the long-standing singular
+   alternative for getting OSM data into R? We can't even given numbers, but the
+   answer is yes by factors of thousands. Both `sf/GDAL` and `osmdata` are very
+   fast, yet `osmdata` remains nevertheless the fastest. Surely that's a
+   justification for claiming ''very fast''? Compared to all other currently
+   possible alternatives, it is so. And finally, 20% faster than the current
+   fastest surely represents an improvement?
 
-8. Changing the `config` file of the `GDAL` OSM driver:
+2. Changing the `config` file of the `GDAL` OSM driver:
 Other than explicit customisation of which `key` fields ought to be returned,
 the only options that the `GDAL config` file enables are potentially
 returning all points and all ways. There still remains no way within

@@ -197,7 +197,7 @@ assemble and dissemble geometrically distinct components.
         import **all** OSM data, to ensure that they remain as true as possible
         to the underlying data model of OSM itself; but
       - We will implement a new function (see 
-         [this `osmdata` issue](https://github.com/osmdatar/osmdata/issues/60)
+         [this `osmdata` issue](https://github.com/osmdatar/osmdata/issues/60))
          that enables reduction of a given `osmdata` object to include only
          unique elements of each geometric class.  The result of this will then
          more closely resemble the output of GDAL, while retaining the primary
